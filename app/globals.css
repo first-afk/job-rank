@@ -1,26 +1,142 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: #fffdf8;
+  --foreground: #0a0a0a;
 
+  /* background gradient */
+  --vertical-gradient: linear-gradient(
+    rgba(0, 0, 0, 0.1) 0.3px,
+    transparent 1px
+  );
+  --horizontal-gradient: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.1) 0.3px,
+    transparent 1px
+  );
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* font-family */
+  --font-sans: var(--font-instrument-sans);
+  --font-serif: var(--font-instrument-serif);
+
+  /* colors */
+  --color-primary: #c1f04c;
+  --color-uno: #5b5bd6;
+  --color-secondary: #0a0a0a;
+
+  /* background color */
+
+  /* brown-ish color*/
+  --color-deux: #f8d6b3;
+  /*  yellow-ish color*/
+  --color-trois: #fdfd96;
+  /* light purple */
+  --color-quart: #c4a1ff;
+  /* light-blue */
+  --color-cent: #daf5f0;
+  /* grey-ish */
+  --color-six: #fffdf8;
+
+  /* status colors */
+  --color-error: #ef4444;
+  --on-error: #ffffff;
+
+  /* outline / border */
+  --color-outline: #000000;
+
+  /* Font Sizes */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 36px;
+  --font-size-3xl: 48px;
+
+  /* Spacing */
+  --spacing-0: 0;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-12: 48px;
+  --spacing-20: 80px;
+
+  /* Rounded */
+  --rounded-none: 0;
+  --rounded-sm: 0.25rem;
+  --rounded-base: 0.5rem;
+  --rounded-md: 0.75rem;
+  --rounded-lg: 1rem;
+  --rounded-xl: 1.5rem;
+  --rounded-full: 9999px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #171717;
     --foreground: #ededed;
+    --vertical-gradient: linear-gradient(
+      rgba(255, 255, 255, 0.1) 0.3px,
+      transparent 1px
+    );
+    --horizontal-gradient: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.1) 0.3px,
+      transparent 1px
+    );
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+  }
+
+  body {
+    background-color: var(--background);
+    background-image: var(--vertical-gradient), var(--horizontal-gradient);
+    background-size: 25px 25px;
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    min-height: 100svh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
