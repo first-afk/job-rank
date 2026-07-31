@@ -16,7 +16,7 @@ const Button = ({
     outline: "bg-white/10 text-outline",
   };
   const baseClass =
-    "relative border-2 border-outline font-semibold rounded-sm shadow shadow-[3px_2px_0_0_rgba(0,0,0,1)] transition-all duration-200 ease-out px-2 py-1";
+    "relative border-2 border-outline font-semibold rounded-sm shadow transition-all duration-200 ease-out px-2 py-1 hover:-translate-y-0.5";
   const finalClass = `${baseClass} ${variants[variant]} ${className} `;
   return (
     <button type={type} className={`${finalClass}`} {...props}>

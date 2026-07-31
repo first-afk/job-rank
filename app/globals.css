@@ -27,19 +27,14 @@
   --color-primary: #c1f04c;
   --color-uno: #5b5bd6;
   --color-secondary: #0a0a0a;
+  --color-tertiary: #5f5a51;
 
   /* background color */
-
-  /* brown-ish color*/
-  --color-deux: #f8d6b3;
-  /*  yellow-ish color*/
-  --color-trois: #fdfd96;
-  /* light purple */
-  --color-quart: #c4a1ff;
-  /* light-blue */
-  --color-cent: #daf5f0;
-  /* grey-ish */
-  --color-six: #fffdf8;
+  --color-deux: #f8d6b3; /* brown-ish color*/
+  --color-trois: #fdfd96; /*  yellow-ish color*/
+  --color-quart: #c4a1ff; /* light purple */
+  --color-cent: #daf5f0; /* light-blue */
+  --color-six: #fffdf8; /* grey-ish */
 
   /* status colors */
   --color-error: #ef4444;
@@ -139,4 +134,41 @@
   }
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* utility classes */
+.shadow {
+  box-shadow: 3px 2px 0 0 rgba(0, 0, 0, 1);
+}
+
+.heading-h1 {
+  font-size: 80px;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  @media (max-width: 768px) {
+    font-size: 64px;
+  }
+}
+
+.heading-uno {
+  font-size: 100px;
+  line-height: 0.86;
+  @media (max-width: 768px) {
+    font-size: 60px;
+  }
+}
+
+.heading-h2 {
+  font-size: 82px;
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  @media (max-width: 768px) {
+    font-size: 48px;
+  }
+}
+
+.testimonial {
+  background-image: var(--vertical-gradient), var(--horizontal-gradient);
+  background-size: 25px 25px;
 }
