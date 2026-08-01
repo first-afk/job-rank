@@ -168,7 +168,7 @@
   }
 }
 
-.testimonial {
+.bg-gradient {
   background-image: var(--vertical-gradient), var(--horizontal-gradient);
   background-size: 25px 25px;
 }

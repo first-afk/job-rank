@@ -4,6 +4,7 @@ import Description from "./components/Description";
 import Marquee from "./components/Marquee";
 import Card from "./components/ui/Card";
 import { testimonial } from "./constants/data";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -19,12 +20,13 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="text-[17px] font-semibold text-[#3a352e] text-center py-10 w-2/3 tracking-[0.03em]">
+            <p className="text-[17px] font-semibold text-[#3a352e] dark:text-foreground text-center py-10 w-2/3 tracking-[0.03em]">
               Filter, sort and match jobs that are tailored to your CV.
             </p>
           </div>
           <div className="relative hero-cta flex max-sm:flex-col items-center justify-center gap-4 py-5">
-            <Button className="py-3 px-6">
+            <Button className="py-3 px-6 relative">
+              <Link className="absolute w-full inset-0" href="/product"></Link>
               <div className="flex items-center justify-center gap-2">
                 <span>
                   <Box className="text-outline size-6 animate-[spin_3s_linear_infinite]" />
@@ -61,7 +63,7 @@ export default function Home() {
           <h2 className="heading-h2 font-serif">
             How to use <span className=" text-uno italic">Job Rank</span>
           </h2>
-          <p className="leading-[1.75] text-tertiary font-normal tracking-wide mt-4">
+          <p className="leading-[1.75] text-tertiary dark:text-foreground font-normal tracking-wide mt-4">
             The smartest way to search
           </p>
         </div>
@@ -72,14 +74,14 @@ export default function Home() {
 
       <section className="min-h-[10vh] border-b-2 border-outline py-10">
         <div className="flex flex-col items-center justify-center">
-          <h3 className="text-[11px] font-medium leading-[1.60] text-secondary uppercase tracking-[0.2em]">
+          <h3 className="text-[11px] font-medium leading-[1.60] text-secondary dark:text-foreground uppercase tracking-[0.2em]">
             curated roles from across the web
           </h3>
           <Marquee />
         </div>
       </section>
 
-      <section className="testimonial min-h-screen border-b-2 border-outline bg-deux">
+      <section className="bg-gradient min-h-screen border-b-2 border-outline bg-deux dark:bg-background">
         <div className="py-20 px-10 flex flex-col items-start justify-center">
           <h4 className="heading-h2 font-serif">
             Built for developers,{" "}
@@ -101,6 +103,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="bg-gradient min-h-screen border-b-2 border-outline bg-trois dark:bg-background"></section>
+      <section className="bg-gradient min-h-screen border-b-2 border-outline bg-quart dark:bg-background"></section>
+      <section className="bg-gradient min-h-screen border-b-2 border-outline bg-cent dark:bg-background"></section>
+      <section className="bg-gradient min-h-screen border-b-2 border-outline bg-deux dark:bg-background"></section>
     </main>
   );
 }
