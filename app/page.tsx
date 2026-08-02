@@ -6,6 +6,15 @@ import Card from "./components/ui/Card";
 import { testimonial } from "./constants/data";
 import Link from "next/link";
 
+type TestimonialItem = {
+  id: number;
+  variant: "cent" | "trois" | "six";
+  reviewer: string;
+  review: string;
+};
+
+const typedTestimonials = testimonial as TestimonialItem[];
+
 export default function Home() {
   return (
     <main>
@@ -89,7 +98,7 @@ export default function Home() {
           </h4>
 
           <div className="py-10 grid md:grid-cols-3 gap-5">
-            {testimonial.map(({ id, variant, review, reviewer }) => (
+            {typedTestimonials.map(({ id, variant, review, reviewer }) => (
               <Card
                 key={id}
                 variant={variant}
