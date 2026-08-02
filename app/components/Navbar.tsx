@@ -1,8 +1,16 @@
 import { Box } from "lucide-react";
-import Button from "./ui/Button";
 import Link from "next/link";
+import { createSupabaseClient } from "@/utils/supabase";
+import NavbarAuthActions from "./NavbarAuthActions";
 
-const Navbar = () => {
+export const dynamic = "force-dynamic";
+
+const Navbar = async () => {
+  const supabase = await createSupabaseClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
     <nav className="bg-background h-20 border-b-2 border-outline">
       <div className="bg-quart h-5"></div>
@@ -19,9 +27,7 @@ const Navbar = () => {
           Product
         </Link>
 
-        <Button>
-          <p className="font-bold capitalize">Sign in</p>
-        </Button>
+        <NavbarAuthActions user={user} />
       </div>
     </nav>
   );

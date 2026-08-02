@@ -19,7 +19,7 @@ const Card = ({
     six: "bg-six text-secondary",
   };
   const baseClass =
-    "relative border-2 border-outline rounded-lg shadow transition-all duration-200 ease-out px-4 py-3 mb-8 mt-4 h-[35vh] md:h-[40vh] mb-auto";
+    "relative border-2 border-outline rounded-lg shadow transition-all duration-200 ease-out px-4 py-3 mb-8 mt-4 h-auto mb-auto";
   const finalClass = `${baseClass} ${variants[variant]} ${className} `;
   return (
     <div {...props} className={`${finalClass}`}>
