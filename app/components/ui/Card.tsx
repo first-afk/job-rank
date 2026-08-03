@@ -3,12 +3,14 @@ import React from "react";
 
 interface CardType extends React.HTMLAttributes<HTMLDivElement> {
   variant?: "deux" | "trois" | "quart" | "cent" | "six";
+  review?: boolean;
 }
 
 const Card = ({
   variant = "deux",
   className,
   children,
+  review = true,
   ...props
 }: CardType) => {
   const variants = {
@@ -24,13 +26,15 @@ const Card = ({
   return (
     <div {...props} className={`${finalClass}`}>
       <div className="flex flex-col space-y-4 py-2">
-        <div className="flex items-center justify-start gap-1">
-          <Star className="size-3 text-outline fill-outline" />
-          <Star className="size-3 text-outline fill-outline" />
-          <Star className="size-3 text-outline fill-outline" />
-          <Star className="size-3 text-outline fill-outline" />
-          <Star className="size-3 text-outline fill-outline" />
-        </div>
+        {review && (
+          <div className="flex items-center justify-start gap-1">
+            <Star className="size-3 text-outline fill-outline" />
+            <Star className="size-3 text-outline fill-outline" />
+            <Star className="size-3 text-outline fill-outline" />
+            <Star className="size-3 text-outline fill-outline" />
+            <Star className="size-3 text-outline fill-outline" />
+          </div>
+        )}
 
         {children}
       </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { SignUpForm } from "../components/Form";
 
 const Page = () => {
@@ -15,6 +16,14 @@ const Page = () => {
           </h2>
         </hgroup>
         <SignUpForm />
+        <div>
+          <p>
+            Don&apos;t have an account yet?{" "}
+            <span>
+              <Link href="/auth/login">Login</Link>
+            </span>
+          </p>
+        </div>
       </div>
     </section>
   );

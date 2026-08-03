@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod";
 import { login, signup } from "../actions";
 import Button from "@/app/components/ui/Button";
+import { Loader2Icon } from "lucide-react";
 
 const passwordSchema = z
   .string()
@@ -45,7 +46,7 @@ export const SignUpForm = () => {
   const {
     handleSubmit,
     control,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<SignUpFormValues>({
     resolver: zodResolver(signUpFormSchema),
     defaultValues: {
@@ -150,8 +151,15 @@ export const SignUpForm = () => {
       </div>
 
       <div className="w-full py-4 mt-2">
-        <Button className="w-full" type="submit">
-          Sign Up
+        <Button className="w-full" type="submit" disabled={isSubmitting}>
+          {isSubmitting ? (
+            <div className="inline-flex items-center justify-center gap-3">
+              <Loader2Icon className="animate-spin text-outline size-4" />
+              <p>Signing up</p>
+            </div>
+          ) : (
+            "Sign Up"
+          )}
         </Button>
       </div>
     </form>
@@ -162,7 +170,7 @@ export const LoginForm = () => {
   const {
     handleSubmit,
     control,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<LoginFormValues>({
     resolver: zodResolver(LoginFormSchema),
     defaultValues: {
@@ -240,8 +248,15 @@ export const LoginForm = () => {
       </div>
 
       <div className="w-full py-4 mt-2">
-        <Button className="w-full" type="submit">
-          Sign In
+        <Button className="w-full" type="submit" disabled={isSubmitting}>
+          {isSubmitting ? (
+            <div className="inline-flex items-center justify-center gap-3">
+              <Loader2Icon className="animate-spin text-outline size-4" />
+              <p>Logging in</p>
+            </div>
+          ) : (
+            "Sign in"
+          )}
         </Button>
       </div>
     </form>

@@ -3,8 +3,9 @@ import Button from "./components/ui/Button";
 import Description from "./components/Description";
 import Marquee from "./components/Marquee";
 import Card from "./components/ui/Card";
-import { testimonial } from "./constants/data";
+import { contact, faq, testimonial } from "./constants/data";
 import Link from "next/link";
+import FaqAccordion from "./components/FaqAccordion";
 
 type TestimonialItem = {
   id: number;
@@ -113,10 +114,42 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-gradient min-h-screen border-b-2 border-outline bg-trois dark:bg-background"></section>
-      <section className="bg-gradient min-h-screen border-b-2 border-outline bg-quart dark:bg-background"></section>
-      <section className="bg-gradient min-h-screen border-b-2 border-outline bg-cent dark:bg-background"></section>
-      <section className="bg-gradient min-h-screen border-b-2 border-outline bg-deux dark:bg-background"></section>
+      {/* <section className="bg-gradient min-h-screen border-b-2 border-outline bg-trois dark:bg-background"></section> */}
+      <section className="contact bg-gradient min-h-screen border-b-2 border-outline bg-quart dark:bg-background py-20">
+        <div className="flex flex-col items-start justify-center px-10 w-full">
+          <h5 className="heading-h2 font-serif">
+            Tell us what <span className="text-uno italic"> to build next</span>
+          </h5>
+          <p className="leading-[1.65] text-tertiary dark:text-foreground tracking-[0.01em] mt-4 text-[15px] ">
+            Job rank is built in public. Join our community to request eatures,
+            report bugs and vote on what we build next.
+          </p>
+        </div>
+        <div className="py-5 grid md:grid-cols-3 max-md:gap-1 gap-5 px-10">
+          {contact.map(({ id, media, description, link, href }) => (
+            <Card key={id} variant="six" review={false}>
+              <p className="text-[14px] font-bold leading-[1.60]">{media}</p>
+              <p className="text-xs leading-[1.60]">{description}</p>
+              <p className="text-xs font-semibold leading-[1.6]">
+                <Link href={href}>{link}</Link>
+              </p>
+            </Card>
+          ))}
+        </div>
+      </section>
+      <section className="bg-gradient min-h-screen border-b-2 border-outline bg-cent dark:bg-background py-20 faq">
+        <div className="flex flex-col items-start justify-center px-10 w-full">
+          <h5 className="heading-h2 font-serif">FAQs</h5>
+          <p className="leading-[1.65] text-tertiary dark:text-foreground tracking-[0.01em] mt-4 text-[15px]">
+            Real questions from product users. If yours isn&apos;t here, ask us
+            on LinkedIn
+          </p>
+        </div>
+        <div className="flex justify-start px-4 w-3/4">
+          <FaqAccordion items={faq} />
+        </div>
+      </section>
+      {/* <section className="bg-gradient min-h-screen border-b-2 border-outline bg-deux dark:bg-background"></section> */}
     </main>
   );
 }

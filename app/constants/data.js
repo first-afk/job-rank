@@ -50,3 +50,32 @@ export const testimonial = [
       "Finally, a job tool that doesn't just do a basic CTRL+F for keywords. The percentage match scores actually make sense.",
   },
 ];
+
+export const contact = [
+  {
+    id: 1,
+    media: "LinkedIn",
+    description: "Questions, feedback, or just say hi",
+    link: "Follow @esther-orieji",
+    href: "",
+  },
+  {
+    id: 2,
+    media: "Mail",
+    description: "Questions, feedback, or just say hi",
+    link: "hey@esther-orieji.com",
+    href: "",
+  },
+];
+
+export const faq = [
+  {
+    id: 1,
+    question: "how does job rank match candidate resume to job description",
+    answer: {
+      title: "vector semantic search",
+      description:
+        "Text content from resume is converted  into high-dimensional vectors and a similarity search is executed to calculate a precise semantic relevance score regardless of phrasing differences",
+    },
+  },
+];
