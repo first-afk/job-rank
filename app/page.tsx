@@ -1,4 +1,4 @@
-import { ArrowDown, Box } from "lucide-react";
+import { ArrowDown, ArrowRight, Box } from "lucide-react";
 import Button from "./components/ui/Button";
 import Description from "./components/Description";
 import Marquee from "./components/Marquee";
@@ -145,11 +145,32 @@ export default function Home() {
             on LinkedIn
           </p>
         </div>
-        <div className="flex justify-start px-4 w-3/4">
+        <div className="flex justify-start px-4 md:w-3/4">
           <FaqAccordion items={faq} />
         </div>
       </section>
-      {/* <section className="bg-gradient min-h-screen border-b-2 border-outline bg-deux dark:bg-background"></section> */}
+      <section className="bg-gradient min-h-screen border-b-2 border-outline bg-deux dark:bg-background py-10">
+        <div className="flex flex-col items-center justify-center py-10">
+          <h5 className="heading-h2 font-serif mb-8 text-center">
+            Try Job Rank <br /> Apply{" "}
+            <span className="text-uno tracking-[0.01em]">everywhere</span>
+          </h5>
+          <p className="text-[15px] tracking-[0.03em] text-tertiary dark:text-foreground">
+            Start using AI to apply for jobs easier and faster
+          </p>
+        </div>
+        <div className="flex items-center justify-center">
+          <Button className="relative py-3 px-6">
+            <Link href="/product" className="absolute w-full inset-0"></Link>
+            <p className="inline-flex items-center justify-center gap-3">
+              Find your match{" "}
+              <span>
+                <ArrowRight />
+              </span>
+            </p>
+          </Button>
+        </div>
+      </section>
     </main>
   );
 }
